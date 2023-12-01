@@ -1,0 +1,446 @@
+.administrador {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.administrador .div {
+  background-color: #ffffff;
+  width: 1440px;
+  height: 1024px;
+  position: relative;
+}
+
+.administrador .overlap {
+  position: absolute;
+  width: 1440px;
+  height: 142px;
+  top: 0;
+  left: 0;
+  background-color: #003f72;
+}
+
+.administrador .marca-UTPL {
+  position: absolute;
+  width: 283px;
+  height: 98px;
+  top: 28px;
+  left: 56px;
+  object-fit: cover;
+}
+
+.administrador .carbon-user-avatar {
+  position: absolute;
+  width: 83px;
+  height: 85px;
+  top: 44px;
+  left: 1289px;
+}
+
+.administrador .text-wrapper {
+  position: absolute;
+  width: 125px;
+  top: 69px;
+  left: 657px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.administrador .carbon-deployment {
+  position: absolute;
+  width: 63px;
+  height: 61px;
+  top: 265px;
+  left: 505px;
+}
+
+
+
+.administrador .NB {
+  position: absolute;
+  width: 214px;
+  height: 40px;
+  top: 340px;
+  left: 60px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #003f72;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+  border-color: #003f72;
+  background-color: #FFF;
+}
+
+.administrador .NB:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #fff;
+}
+
+
+
+.administrador .PF {
+  position: absolute;
+  width: 214px;
+  top: 340px;
+  height: 40px;
+  left: 429px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #003f72;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+  border-color: #003f72;
+  background-color: #FFF;
+}
+.administrador .PF:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #fff;
+}
+
+
+.administrador .rectangle {
+  position: absolute;
+  width: 294px;
+  height: 64px;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: #002233;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.administrador .DN{
+  position: absolute;
+  width: 214px;
+  top: 340px;
+  height: 40px;
+  right: 440px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 650;
+  color: #003f72;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+  border-color: #003f72;
+  background-color: #FFF;
+}
+
+ .administrador .DN:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #fff;
+}
+
+
+.administrador .la-user-nurse {
+  position: absolute;
+  width: 83px;
+  height: 79px;
+  top: 253px;
+  left: 134px;
+}
+
+.administrador .bx-book-add {
+  position: absolute;
+  width: 62px;
+  height: 71px;
+  top: 259px;
+  left: 864px;
+}
+
+
+
+.administrador .BR {
+  position: absolute;
+  width: 224px;
+  top: 340px;
+  height: 40px;
+  right: 60px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 650;
+  color: #003f72;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+  border-color: #003f72;
+  background-color: #FFF;
+}
+
+.administrador .BR:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #fff;
+}
+
+.administrador .CR {
+  position: absolute;
+  width: 100px;
+  top: 10px;
+  height: 45px;
+  right: -0px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 650;
+  color: #003f72;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+  border-color: #003f72;
+  background-color: #FFF;
+}
+
+.administrador .CR:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #fff;
+}
+
+.administrador .overlap-group-2 {
+  position: absolute;
+  width: 1284px;
+  height: 537px;
+  top: 421px;
+  left: 47px;
+  background-color: #003f72;
+  border-radius: 10px;
+}
+
+.administrador .overlap-4 {
+  position: absolute;
+  width: 100px;
+  height: 64px;
+  top: 299px;
+  left: 1156px;
+}
+
+
+.administrador .text-wrapper-6 {
+  position: absolute;
+  width: 96px;
+  top: 19px;
+  left: 4px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #003f72;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.administrador .overlap-5 {
+  position: absolute;
+  width: 96px;
+  top: 184px;
+  left: 1156px;
+
+}
+
+.administrador .GR {
+  position: absolute;
+  width: 88px;
+  top: 17px;
+  left: 7px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #003f72;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.administrador .rectangle-3 {
+  position: absolute;
+  width: 294px;
+  height: 64px;
+  top: 384px;
+  left: 62px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid;
+  box-shadow: 0px 4px 4px #00000040;
+}
+.administrador .rectangle-8 {
+  position: absolute;
+  width: 294px;
+  height: 64px;
+  top: 404px;
+  left: 62px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+
+.administrador .rectangle-4 {
+  position: absolute;
+  width: 294px;
+  height: 64px;
+  top: 268px;
+  left: 62px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.administrador .rectangle-5 {
+  position: absolute;
+  width: 294px;
+  height: 64px;
+  top: 36px;
+  left: 62px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.administrador .rectangle-6 {
+  position: absolute;
+  width: 294px;
+  height: 64px;
+  top: 152px;
+  left: 62px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.administrador .overlap-6 {
+  position: absolute;
+  width: 667px;
+  height: 465px;
+  top: 22px;
+  left: 449px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: #002233;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.administrador .text-wrapper-8 {
+  position: absolute;
+  width: 254px;
+  top: 407px;
+  left: 22px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #003f72;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.administrador .text-wrapper-9 {
+  position: absolute;
+  width: 254px;
+  top: 235px;
+  left: 19px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #003f72;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.administrador .text-wrapper-10 {
+  position: absolute;
+  width: 254px;
+  top: 28px;
+  left: 22px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #003f72;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.administrador .rectangle-7 {
+  position: absolute;
+  width: 616px;
+  height: 149px;
+  top: 69px;
+  left: 22px;
+  background-color: #eaab00;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: #edfffd;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.administrador .rectangle-9 {
+  position: absolute;
+  width: 616px;
+  height: 129px;
+  top: 265px;
+  left: 22px;
+  background-color: #eaab00;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: #edfffd;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.administrador .img {
+  position: absolute;
+  width: 624px;
+  height: 121px;
+  top: 271px;
+  left: 15px;
+}
+
+.administrador .text-wrapper-11 {
+  position: absolute;
+  top: 204px;
+  left: 527px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #003f72;
+  font-size: 25px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.administrador .octicon-book {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 270px;
+  left: 1239px;
+}
