@@ -269,6 +269,12 @@
   box-shadow: 0px 4px 4px #00000040;
 }
 
+.administrador .Boton:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #fff;
+}
+
 .administrador .text-wrapper-6 {
   position: absolute;
   width: 96px;
