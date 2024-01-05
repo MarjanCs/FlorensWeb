@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 button.value = data[nece].Title;
                 button.textContent = data[nece].Title;
                 button.addEventListener('click',function() {
-                    llamarInformacion(nece,data[nece].Title);
+                    llamarInformacion(data[nece].Id,data[nece].Title);
                 });
                 //button.onclick = llamarInformacion();
                 userListElement.appendChild(button);
@@ -71,6 +71,29 @@ function llamarInformacion (documento, name){
           });
 
     }) .catch(error => {
+        // Manejar errores de la solicitud
+        console.error('Error de solicitud:', error);
+
+    });
+}
+
+function Guardar(){
+    var Definicion = document.getElementById("txtDefinicion").value;
+    var Titulo = document.getElementById("txtTitulo").value;
+    var Objetivo = document.getElementById("txtObjetivos").value;
+    fetch(URL+'EditarDocument', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            DefinicionUpdate: Definicion,
+            TituloUpdate: Titulo,
+            ObjetivoUpdate: Objetivo
+        })
+    }).then(data=> {
+
+    }).catch(error => {
         // Manejar errores de la solicitud
         console.error('Error de solicitud:', error);
 
