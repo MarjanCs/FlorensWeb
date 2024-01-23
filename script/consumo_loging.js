@@ -1,3 +1,6 @@
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
 function submitForm() {
     // Obtener los valores de usuario y contraseña
     const username = document.getElementById("user").value;
@@ -22,9 +25,13 @@ function submitForm() {
     .then(data => {
         console.log(data["mensaje"]);
         if(data["status"]==true){
-            location.href='./administrador.html';
-            auth.isAuthenticated = true;
-            auth.user = username;
+            if(data["rol"]=="Administrador"){
+                location.href='./administrador.html';
+                auth.isAuthenticated = true;
+                auth.user = username;
+            }else{
+                alert("Acceso no autorizado");
+            }
         }else{
             alert("Usuario o contraseña incorrecto");
         }
