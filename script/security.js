@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 //Metodo de cerrar Cesión
 function logout() {
-    localStorage.removeItem('usuario');
-    window.location.href = 'index.html';
+    const acepta = confirm('¿Está seguro que deseas salir?');
+    if (acepta) {
+        localStorage.removeItem('usuario');
+        window.location.href = 'index.html';
+    } else {
+        console.log('El usuario no está de acuerdo.');
+    }
+    
 }
