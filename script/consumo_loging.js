@@ -1,3 +1,4 @@
+let URL = "http://127.0.0.1:5000/";
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
 });
@@ -13,7 +14,7 @@ function submitForm() {
     };
 
     
-    fetch("http://127.0.0.1:5000/verificar_usuario", {
+    fetch(URL+"verificar_usuario", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -29,6 +30,7 @@ function submitForm() {
                 location.href='./administrador.html';
                 auth.isAuthenticated = true;
                 auth.user = username;
+                localStorage.setItem('usuario', data.usuario);
             }else{
                 alert("Acceso no autorizado");
             }
