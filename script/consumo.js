@@ -1,4 +1,4 @@
-let URL = "http://127.0.0.1:5000/";
+//let URL = "http://127.0.0.1:5000/";
 //let URL = "http://127.0.0.1:5000/Necesidades";
 var doc = "";
 var nameD = "";
@@ -54,30 +54,30 @@ function llamarInformacion (documento, name){
     }).then(data => {
         // Manejar la información devuelta
         console.log(data);
-        const resultTitulo = document.getElementById("txtTitulo");
+        const resultTitulo = document.getElementById("txtTituloNece");
         resultTitulo.removeAttribute('disabled');
         resultTitulo.value = data[0]?.Titulo;
-        const resultDefi = document.getElementById('txtDefinicion');
+        const resultDefi = document.getElementById('txtDefinicionNece');
         resultDefi.removeAttribute('disabled');
         resultDefi.value = data[0]?.Definicion;
-        const resultObjetivos = document.getElementById('txtObjetivos');
+        const resultObjetivos = document.getElementById('txtObjetivosNece');
         resultObjetivos.removeAttribute('disabled');
         resultObjetivos.value = data[0]?.Objetivo;
-        const resultrAfecciones = document.getElementById('txtAfecciones');
+        const resultrAfecciones = document.getElementById('txtAfeccionesNece');
         resultrAfecciones.removeAttribute('disabled');
         resultrAfecciones.value = "";
         Object.entries(data[0]?.Afecciones).forEach(([afeccion, descripcion]) => {
             console.log(`${afeccion}: ${descripcion}`);
             resultrAfecciones.value = resultrAfecciones.value+`${afeccion}: ${descripcion}`+"\n ";
         });
-        const resultrCuidados = document.getElementById('txtCuidados');
+        const resultrCuidados = document.getElementById('txtCuidadosNece');
         resultrCuidados.removeAttribute('disabled');
         resultrCuidados.value = "";
         Object.entries(data[0]?.Cuidados).forEach(([afeccion, descripcion]) => {
             console.log(`${afeccion}: ${descripcion}`);
             resultrCuidados.value = resultrCuidados.value+`${afeccion}: ${descripcion}`+"\n ";
         });
-        const Boton = document.getElementById('btnGuardar');
+        const Boton = document.getElementById('btnGuardarNece');
         Boton.removeAttribute('disabled');
     }) .catch(error => {
         // Manejar errores de la solicitud
@@ -86,13 +86,13 @@ function llamarInformacion (documento, name){
     });
 }
 
-function Guardar(){
-    var Definicion = document.getElementById("txtDefinicion").value;
-    var Titulo = document.getElementById("txtTitulo").value;
-    var Objetivo = document.getElementById("txtObjetivos").value;
-    var afecciones = document.getElementById("txtAfecciones").value;
+function GuardarNece(){
+    var Definicion = document.getElementById("txtDefinicionNece").value;
+    var Titulo = document.getElementById("txtTituloNece").value;
+    var Objetivo = document.getElementById("txtObjetivosNece").value;
+    var afecciones = document.getElementById("txtAfeccionesNece").value;
     var resultadosAltera = transformarJson(afecciones);
-    var cuidados = document.getElementById("txtCuidados").value;
+    var cuidados = document.getElementById("txtCuidadosNece").value;
     var resultadosValor = transformarJson(cuidados);
     fetch(URL+'EditarDocumentNecesidades/'+doc+"/"+nameD, {
         method: 'PUT',
@@ -108,7 +108,7 @@ function Guardar(){
         })
     }).then(data=> {
         console.log("Completado");
-        limpiar();
+        limpiarNece();
     }).catch(error => {
         // Manejar errores de la solicitud
         console.error('Error de solicitud:', error);
@@ -134,22 +134,22 @@ function transformarJson(valor){
     
 }
 
-function limpiar(){
-    var Definicion = document.getElementById("txtDefinicion");
+function limpiarNece(){
+    var Definicion = document.getElementById("txtDefinicionNece");
     Definicion.setAttribute('disabled', 'disabled');
     Definicion.value="";
-    var Titulo = document.getElementById("txtTitulo");
+    var Titulo = document.getElementById("txtTituloNece");
     Titulo.setAttribute('disabled', 'disabled');
     Titulo.value="";
-    var Objetivo = document.getElementById("txtObjetivos");
+    var Objetivo = document.getElementById("txtObjetivosNece");
     Objetivo.setAttribute('disabled', 'disabled');
     Objetivo.value="";
-    var afecciones = document.getElementById("txtAfecciones");
+    var afecciones = document.getElementById("txtAfeccionesNece");
     afecciones.setAttribute('disabled', 'disabled');
     afecciones.value="";
-    var cuidados = document.getElementById("txtCuidados");
+    var cuidados = document.getElementById("txtCuidadosNece");
     cuidados.setAttribute('disabled', 'disabled');
     cuidados.value="";
-    const Boton = document.getElementById('btnGuardar');
+    const Boton = document.getElementById('btnGuardarNece');
     Boton.setAttribute('disabled', 'disabled');
 }

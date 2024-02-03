@@ -1,7 +1,7 @@
-let URL = "http://127.0.0.1:5000/";
+//let URL = "http://127.0.0.1:5000/";
 //let URL = "http://127.0.0.1:5000/Necesidades";
 
-function llamarInformacion (collection){    
+function llamarInformacionBiblio (collection){    
     fetch(URL+'BibliografiasList/'+collection)
         .then(response => {
             if (!response.ok) {
@@ -11,17 +11,17 @@ function llamarInformacion (collection){
         }).then(data => {
             // Manejar la información devuelta
             console.log(data);
-            const resultrBibliografia = document.getElementById('txtBibliografias');
+            const resultrBibliografia = document.getElementById('txtBibliografiasBiblio');
             resultrBibliografia.removeAttribute('disabled');
             resultrBibliografia.value = "";
             Object.entries(data.Bibliografias).forEach(([afeccion, descripcion]) => {
                 //console.log(`${afeccion}: ${descripcion}`);
                 resultrBibliografia.value = resultrBibliografia.value+`${descripcion}`+"\n ";
             });
-            const Boton = document.getElementById('btnGuardar');
+            const Boton = document.getElementById('btnGuardarBiblio');
             Boton.removeAttribute('disabled');
             Boton.addEventListener('click',function() {
-                Guardar(collection);
+                GuardarBiblio(collection);
             });
         }) .catch(error => {
             // Manejar errores de la solicitud
@@ -30,8 +30,8 @@ function llamarInformacion (collection){
         });
 }
 
-function Guardar(collection){
-    var valorar = document.getElementById("txtBibliografias").value;
+function GuardarBiblio(collection){
+    var valorar = document.getElementById("txtBibliografiasBiblio").value;
     var resultadosValor = transformarJson(valorar);
     console.log(JSON.stringify({
         UpdateBibliografia: resultadosValor,
@@ -48,7 +48,7 @@ function Guardar(collection){
         })
     }).then(data=> {
         console.log("Completado");
-        limpiar();
+        limpiarBiblio();
     }).catch(error => {
         // Manejar errores de la solicitud
         console.error('Error de solicitud:', error);
@@ -71,16 +71,16 @@ function transformarJson(valor){
     
 }
 
-function limpiar(){
-    var Definicion = document.getElementById("txtBibliografias");
+function limpiarBiblio(){
+    var Definicion = document.getElementById("txtBibliografiasBiblio");
     Definicion.setAttribute('disabled', 'disabled');
     Definicion.value="";
-    const Boton = document.getElementById('btnGuardar');
+    const Boton = document.getElementById('btnGuardarBiblio');
     Boton.setAttribute('disabled', 'disabled');
 }
 
 function ejemplo(){
-    var valorar = document.getElementById("txtBibliografias").value;
+    var valorar = document.getElementById("txtBibliografiasBiblio").value;
     const lineas = valorar.split('\n');
     const bibliografias = {};
 

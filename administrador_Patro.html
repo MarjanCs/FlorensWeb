@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="styles/stylesA.css" />
     <script src="./script/consumoPatro.js"></script>
     <script src="./script/security.js"></script>
+    <script src="./script/config.js"></script>
   </head>
   <body>
     <div class="administrador">
@@ -34,7 +35,7 @@
 
 
 
-        <div class="overlap-group-2">
+        <div class="overlap-group-2" id="Patrones">
           <h3>Lista de Patrones</h3>
           <div class="cuadroDividido">
             <div id="PatronesList">
@@ -42,24 +43,24 @@
             </div>
           </div>
           <div class="overlap-4">
-           <button class="CR" onclick="limpiar()">Cancelar</button>
+           <button class="CR" onclick="limpiarPatro()">Cancelar</button>
           </div>
 
           <div class="overlap-5">
-          <button onclick="Guardar()" class="CR" disabled id="btnGuardar">Guardar</button>
+          <button onclick="GuardarPatro()" class="CR" disabled id="btnGuardarPatro">Guardar</button>
           </div>
          
           <div class="overlap-6">
             <h3 class="text-Title">Título</h3>
-            <textarea type="text" value="" class="rectangle-7 " id="txtTitulo" disabled></textarea>
+            <textarea type="text" value="" class="rectangle-7 " id="txtTituloPatro" disabled></textarea>
             <h3 class="text-Title">Definición</h3>
-            <textarea type="text" value="" class="rectangle-7 " id="txtDefinicion" disabled></textarea>
+            <textarea type="text" value="" class="rectangle-7 " id="txtDefinicionPatro" disabled></textarea>
             <h3 class="text-Title">Alteraciones del Patron</h3>
-            <textarea type="text" value="" class="rectangle-7 " id="txtAlteraciones" disabled></textarea>
+            <textarea type="text" value="" class="rectangle-7 " id="txtAlteracionesPatro" disabled></textarea>
             <h3 class="text-Title">Que Valora</h3>
-            <textarea type="text" value="" class="rectangle-7 " id="txtValorar" disabled></textarea>
+            <textarea type="text" value="" class="rectangle-7 " id="txtValorarPatro" disabled></textarea>
             <h3 class="text-Title">Resultados</h3>
-            <textarea type="text" value="" class="rectangle-7 " id="txtResultados" disabled></textarea>
+            <textarea type="text" value="" class="rectangle-7 " id="txtResultadosPatro" disabled></textarea>
               
           </div>
         </div>

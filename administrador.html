@@ -4,8 +4,14 @@
     <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="styles/stylesA.css" />
     <script src="./script/security.js"></script>
+    <script src="./script/utilitarios.js"></script>
+    <script src="./script/config.js"></script>
+    <script src="./script/consumo.js"></script>
+    <script src="./script/consumoPatro.js"></script>
+    <script src="./script/consumoDominios.js"></script>
+    <script src="./script/consumoBiblio.js"></script>
   </head>
-  <body>
+  <body onload="PresentarOcultarNece();">
     <div class="administrador">
       <title>Florens Administracion</title>
       <div class="div">
@@ -17,17 +23,134 @@
           <div class="text-wrapper">Florens</div>
         </div>
 
-        <button onclick="window.location='./administrador_Nece.html'" class="NB" >Necesidades Basicas</button>
+        <button onclick="PresentarOcultarNece();" class="NB" >Necesidades Basicas</button>
         <img class="la-user-nurse" src="img/1.png" />
 
-        <button onclick="window.location='./administrador_Patro.html'" class="PF">Patrones Funcionales</button> 
+        <button onclick="PresentarOcultarPatro();" class="PF">Patrones Funcionales</button> 
         <img class="carbon-deployment" src="img/2.png" />
 
-        <button class="DN" onclick="window.location='./administrador_Dominios.html'">Dominios NANDA</button>
+        <button class="DN" onclick="PresentarOcultarDom();">Dominios NANDA</button>
         <img class="bx-book-add" src="img/3.png" />
 
-        <button class="BR" onclick="window.location='./administrador_Biblio.html'">Bibliografia Relacionada</button>
+        <button class="BR" onclick="PresentarOcultarBiblio();">Bibliografia Relacionada</button>
         <img class="octicon-book" src="img/4.png" />
+
+        <div class="overlap-group-2" id="Necesidades">
+          <h3>Lista de Necesidades</h3>
+          <div class="cuadroDividido">
+            <div id="NecesidadesList">
+
+            </div>
+          </div>
+          <div class="overlap-4">
+           <button class="CR" onclick="limpiarNece()">Cancelar</button>
+          </div>
+
+          <div class="overlap-5">
+          <button onclick="GuardarNece()" class="CR" id="btnGuardarNece" disabled>Guardar</button>
+          </div>
+         
+          <div class="overlap-6">
+            <h3 class="text-Title">Título</h3>
+            <textarea type="text" value="" class="rectangle-7" id="txtTituloNece" disabled></textarea>
+            <h3 class="text-Title">Definición</h3>
+            <textarea type="text" value="" class="rectangle-7" id="txtDefinicionNece" disabled></textarea>
+            <h3 class="text-Title">Objetivos</h3>
+            <textarea type="text" value="" class="rectangle-7" id="txtObjetivosNece" disabled></textarea>
+            <h3 class="text-Title">Afecciones Derivadas</h3>
+            <textarea type="text" value="" class="rectangle-7" id="txtAfeccionesNece" disabled></textarea>
+            <h3 class="text-Title">Cuidados por Aplicar</h3>
+            <textarea type="text" value="" class="rectangle-7" id="txtCuidadosNece"disabled></textarea>
+              
+          </div>
+        </div>
+
+
+        <div class="overlap-group-2" id="Patrones">
+          <h3>Lista de Patrones</h3>
+          <div class="cuadroDividido">
+            <div id="PatronesList">
+
+            </div>
+          </div>
+          <div class="overlap-4">
+           <button class="CR" onclick="limpiarPatro()">Cancelar</button>
+          </div>
+
+          <div class="overlap-5">
+          <button onclick="GuardarPatro()" class="CR" disabled id="btnGuardarPatro">Guardar</button>
+          </div>
+         
+          <div class="overlap-6">
+            <h3 class="text-Title">Título</h3>
+            <textarea type="text" value="" class="rectangle-7 " id="txtTituloPatro" disabled></textarea>
+            <h3 class="text-Title">Definición</h3>
+            <textarea type="text" value="" class="rectangle-7 " id="txtDefinicionPatro" disabled></textarea>
+            <h3 class="text-Title">Alteraciones del Patron</h3>
+            <textarea type="text" value="" class="rectangle-7 " id="txtAlteracionesPatro" disabled></textarea>
+            <h3 class="text-Title">Que Valora</h3>
+            <textarea type="text" value="" class="rectangle-7 " id="txtValorarPatro" disabled></textarea>
+            <h3 class="text-Title">Resultados</h3>
+            <textarea type="text" value="" class="rectangle-7 " id="txtResultadosPatro" disabled></textarea>
+              
+          </div>
+        </div>
+
+
+        <div class="overlap-group-2" id="Dominios">
+          <h3>Lista de Dominios</h3>
+          <div class="cuadroDividido">
+            <div id="DominiosList">
+
+            </div>
+          </div>
+          <div class="overlap-4">
+           <button class="CR" onclick="limpiarDom()">Cancelar</button>
+          </div>
+
+          <div class="overlap-5">
+          <button onclick="GuardarDom()" class="CR" id="btnGuardarDom" disabled>Guardar</button>
+          </div>
+         
+          <div class="overlap-6">
+            <h3 class="text-Title">Título</h3>
+            <textarea type="text" value="" class="rectangle-7" id="txtTituloDom" disabled></textarea>
+            <h3 class="text-Title">Definición</h3>
+            <textarea type="text" value="" class="rectangle-7" id="txtDefinicionDom" disabled></textarea>
+            <h3 class="text-Title">Objetivos</h3>
+            <textarea type="text" value="" class="rectangle-7" id="txtObjetivosDom" disabled></textarea>
+            <h3 class="text-Title">Afecciones Derivadas</h3>
+            <textarea type="text" value="" class="rectangle-7" id="txtAfeccionesDom" disabled></textarea>
+            <h3 class="text-Title">Cuidados por Aplicar</h3>
+            <textarea type="text" value="" class="rectangle-7" id="txtCuidadosDom"disabled></textarea>
+              
+          </div>
+        </div>
+
+
+        <div class="overlap-group-2" id="Bibliografia">
+          <h3>Lista de Bibliografias</h3>
+          <div class="cuadroDividido">
+            <div id="BibliografiasList">
+              <button type="button" class="Boton" id="BiblioButton_Nece" onclick="llamarInformacionBiblio('Necesidades');">Necesidades</button>
+              <button type="button" class="Boton" id="BiblioButton_Patro" onclick="llamarInformacionBiblio('Patrones');">Patrones</button>
+              <button type="button" class="Boton" id="BiblioButton_Dominio" onclick="llamarInformacionBiblio('Dominios');">Dominios</button>
+            </div>
+          </div>
+          <div class="overlap-4">
+           <button class="CR" onclick="limpiarBiblio()">Cancelar</button>
+          </div>
+
+          <div class="overlap-5">
+          <button onclick="GuardarBiblio()" class="CR" disabled id="btnGuardarBiblio">Guardar</button>
+          </div>
+         
+          <div class="overlap-6">
+            <h3 class="text-Title">Lista de Bibliografias</h3>
+            <textarea type="text" value="" class="rectangle-7 " id="txtBibliografiasBiblio" disabled></textarea>
+              
+          </div>
+        </div>
         <div class="text-wrapper-11">Administración de Información</div>
        
       </div>

@@ -1,4 +1,4 @@
-let URL = "http://127.0.0.1:5000/";
+//let URL = "http://127.0.0.1:5000/";
 //let URL = "http://127.0.0.1:5000/Necesidades";
 var doc = "";
 var nameD = "";
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 button.value = data[nece].Title;
                 button.textContent = data[nece].Title;
                 button.addEventListener('click',function() {
-                    llamarInformacion(data[nece].Id,data[nece].Title);
+                    llamarInformacionPatrones(data[nece].Id,data[nece].Title);
                 });
                 //button.onclick = llamarInformacion();
                 userListElement.appendChild(button);
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 
-function llamarInformacion (documento, name){
+function llamarInformacionPatrones (documento, name){
     doc = documento;
     nameD = name;
     console.log(documento+name);
@@ -55,34 +55,34 @@ function llamarInformacion (documento, name){
     }).then(data => {
         // Manejar la información devuelta
         console.log(data);
-        const resultTitulo = document.getElementById("txtTitulo");
+        const resultTitulo = document.getElementById("txtTituloPatro");
         resultTitulo.removeAttribute('disabled');
         resultTitulo.value = data[0]?.Titulo;
-        const resultDefi = document.getElementById('txtDefinicion');
+        const resultDefi = document.getElementById('txtDefinicionPatro');
         resultDefi.removeAttribute('disabled');
         resultDefi.value = data[0]?.Definicion;
-        const resultrAfecciones = document.getElementById('txtAlteraciones');
+        const resultrAfecciones = document.getElementById('txtAlteracionesPatro');
         resultrAfecciones.removeAttribute('disabled');
         resultrAfecciones.value = "";
         Object.entries(data[0]?.Alteraciones).forEach(([afeccion, descripcion]) => {
             console.log(`${afeccion}: ${descripcion}`);
             resultrAfecciones.value = resultrAfecciones.value+`${afeccion}: ${descripcion}`+"\n ";
         });
-        const resultrCuidados = document.getElementById('txtValorar');
+        const resultrCuidados = document.getElementById('txtValorarPatro');
         resultrCuidados.removeAttribute('disabled');
         resultrCuidados.value = "";
         Object.entries(data[0]?.Valoraciones).forEach(([afeccion, descripcion]) => {
             console.log(`${afeccion}: ${descripcion}`);
             resultrCuidados.value = resultrCuidados.value+`${afeccion}: ${descripcion}`+"\n ";
         });
-        const resultados = document.getElementById('txtResultados');
+        const resultados = document.getElementById('txtResultadosPatro');
         resultados.removeAttribute('disabled');
         resultados.value ="";
         Object.entries(data[0]?.Resultados).forEach(([afeccion, descripcion]) => {
             console.log(`${afeccion}: ${descripcion}`);
             resultados.value = resultados.value+`${afeccion}: ${descripcion}`+"\n ";
         });
-        const Boton = document.getElementById('btnGuardar');
+        const Boton = document.getElementById('btnGuardarPatro');
         Boton.removeAttribute('disabled');
     }) .catch(error => {
         // Manejar errores de la solicitud
@@ -91,14 +91,14 @@ function llamarInformacion (documento, name){
     });
 }
 
-function Guardar(){
-    var Definicion = document.getElementById("txtDefinicion").value;
-    var Titulo = document.getElementById("txtTitulo").value;
-    var Objetivo = document.getElementById("txtResultados").value;
+function GuardarPatro(){
+    var Definicion = document.getElementById("txtDefinicionPatro").value;
+    var Titulo = document.getElementById("txtTituloPatro").value;
+    var Objetivo = document.getElementById("txtResultadosPatro").value;
     var resultados = transformarJson(Objetivo);
-    var alteraciones = document.getElementById("txtAlteraciones").value;
+    var alteraciones = document.getElementById("txtAlteracionesPatro").value;
     var resultadosAltera = transformarJson(alteraciones);
-    var valorar = document.getElementById("txtValorar").value;
+    var valorar = document.getElementById("txtValorarPatro").value;
     var resultadosValor = transformarJson(valorar);
     console.log(resultados.Resultados);
     fetch(URL+'EditarDocumentPatron/'+doc+"/"+nameD, {
@@ -115,7 +115,7 @@ function Guardar(){
         })
     }).then(data=> {
         console.log("Completado");
-        limpiar();
+        limpiarPatro();
     }).catch(error => {
         // Manejar errores de la solicitud
         console.error('Error de solicitud:', error);
@@ -141,22 +141,22 @@ function transformarJson(valor){
     
 }
 
-function limpiar(){
-    var Definicion = document.getElementById("txtDefinicion");
+function limpiarPatro(){
+    var Definicion = document.getElementById("txtDefinicionPatro");
     Definicion.setAttribute('disabled', 'disabled');
     Definicion.value="";
-    var Titulo = document.getElementById("txtTitulo");
+    var Titulo = document.getElementById("txtTituloPatro");
     Titulo.setAttribute('disabled', 'disabled');
     Titulo.value="";
-    var Objetivo = document.getElementById("txtResultados");
+    var Objetivo = document.getElementById("txtResultadosPatro");
     Objetivo.setAttribute('disabled', 'disabled');
     Objetivo.value="";
-    var alteraciones = document.getElementById("txtAlteraciones");
+    var alteraciones = document.getElementById("txtAlteracionesPatro");
     alteraciones.setAttribute('disabled', 'disabled');
     alteraciones.value="";
-    var valorar = document.getElementById("txtValorar");
+    var valorar = document.getElementById("txtValorarPatro");
     valorar.setAttribute('disabled', 'disabled');
     valorar.value="";
-    const Boton = document.getElementById('btnGuardar');
+    const Boton = document.getElementById('btnGuardarPatro');
     Boton.setAttribute('disabled', 'disabled');
 }

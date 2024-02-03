@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="styles/stylesA.css" />
     <script src="./script/consumoDominios.js"></script>
     <script src="./script/security.js"></script>
+    <script src="./script/config.js"></script>
   </head>
   <body>
     <div class="administrador">
@@ -34,7 +35,7 @@
 
 
 
-        <div class="overlap-group-2">
+        <div class="overlap-group-2" id="Dominios">
           <h3>Lista de Dominios</h3>
           <div class="cuadroDividido">
             <div id="DominiosList">
@@ -42,24 +43,24 @@
             </div>
           </div>
           <div class="overlap-4">
-           <button class="CR" onclick="limpiar()">Cancelar</button>
+           <button class="CR" onclick="limpiarDom()">Cancelar</button>
           </div>
 
           <div class="overlap-5">
-          <button onclick="Guardar()" class="CR" id="btnGuardar" disabled>Guardar</button>
+          <button onclick="GuardarDom()" class="CR" id="btnGuardarDom" disabled>Guardar</button>
           </div>
          
           <div class="overlap-6">
             <h3 class="text-Title">Título</h3>
-            <textarea type="text" value="" class="rectangle-7" id="txtTitulo" disabled></textarea>
+            <textarea type="text" value="" class="rectangle-7" id="txtTituloDom" disabled></textarea>
             <h3 class="text-Title">Definición</h3>
-            <textarea type="text" value="" class="rectangle-7" id="txtDefinicion" disabled></textarea>
+            <textarea type="text" value="" class="rectangle-7" id="txtDefinicionDom" disabled></textarea>
             <h3 class="text-Title">Objetivos</h3>
-            <textarea type="text" value="" class="rectangle-7" id="txtObjetivos" disabled></textarea>
+            <textarea type="text" value="" class="rectangle-7" id="txtObjetivosDom" disabled></textarea>
             <h3 class="text-Title">Afecciones Derivadas</h3>
-            <textarea type="text" value="" class="rectangle-7" id="txtAfecciones" disabled></textarea>
+            <textarea type="text" value="" class="rectangle-7" id="txtAfeccionesDom" disabled></textarea>
             <h3 class="text-Title">Cuidados por Aplicar</h3>
-            <textarea type="text" value="" class="rectangle-7" id="txtCuidados"disabled></textarea>
+            <textarea type="text" value="" class="rectangle-7" id="txtCuidadosDom"disabled></textarea>
               
           </div>
         </div>
