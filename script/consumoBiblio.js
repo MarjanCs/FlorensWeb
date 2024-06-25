@@ -1,5 +1,4 @@
-//let URL = "http://127.0.0.1:5000/";
-//let URL = "http://127.0.0.1:5000/Necesidades";
+
 
 function llamarInformacionBiblio (collection){    
     fetch(URL+'BibliografiasList/'+collection)
