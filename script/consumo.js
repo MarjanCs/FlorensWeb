@@ -67,14 +67,14 @@ function llamarInformacion (documento, name){
         resultrAfecciones.value = "";
         Object.entries(data[0]?.Afecciones).forEach(([afeccion, descripcion]) => {
             console.log(`${afeccion}: ${descripcion}`);
-            resultrAfecciones.value = resultrAfecciones.value+`${afeccion}: ${descripcion}`+"\n ";
+            resultrAfecciones.value = resultrAfecciones.value+`${afeccion}: ${descripcion}`+"\n";
         });
         const resultrCuidados = document.getElementById('txtCuidadosNece');
         resultrCuidados.removeAttribute('disabled');
         resultrCuidados.value = "";
         Object.entries(data[0]?.Cuidados).forEach(([afeccion, descripcion]) => {
             console.log(`${afeccion}: ${descripcion}`);
-            resultrCuidados.value = resultrCuidados.value+`${afeccion}: ${descripcion}`+"\n ";
+            resultrCuidados.value = resultrCuidados.value+`${afeccion}: ${descripcion}`+"\n";
         });
         const Boton = document.getElementById('btnGuardarNece');
         Boton.removeAttribute('disabled');

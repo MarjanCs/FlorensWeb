@@ -65,21 +65,21 @@ function llamarInformacionPatrones (documento, name){
         resultrAfecciones.value = "";
         Object.entries(data[0]?.Alteraciones).forEach(([afeccion, descripcion]) => {
             console.log(`${afeccion}: ${descripcion}`);
-            resultrAfecciones.value = resultrAfecciones.value+`${afeccion}: ${descripcion}`+"\n ";
+            resultrAfecciones.value = resultrAfecciones.value+`${afeccion}: ${descripcion}`+"\n";
         });
         const resultrCuidados = document.getElementById('txtValorarPatro');
         resultrCuidados.removeAttribute('disabled');
         resultrCuidados.value = "";
         Object.entries(data[0]?.Valoraciones).forEach(([afeccion, descripcion]) => {
             console.log(`${afeccion}: ${descripcion}`);
-            resultrCuidados.value = resultrCuidados.value+`${afeccion}: ${descripcion}`+"\n ";
+            resultrCuidados.value = resultrCuidados.value+`${afeccion}: ${descripcion}`+"\n";
         });
         const resultados = document.getElementById('txtResultadosPatro');
         resultados.removeAttribute('disabled');
         resultados.value ="";
         Object.entries(data[0]?.Resultados).forEach(([afeccion, descripcion]) => {
             console.log(`${afeccion}: ${descripcion}`);
-            resultados.value = resultados.value+`${afeccion}: ${descripcion}`+"\n ";
+            resultados.value = resultados.value+`${afeccion}: ${descripcion}`+"\n";
         });
         const Boton = document.getElementById('btnGuardarPatro');
         Boton.removeAttribute('disabled');

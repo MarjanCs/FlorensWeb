@@ -15,7 +15,7 @@ function llamarInformacionBiblio (collection){
             resultrBibliografia.value = "";
             Object.entries(data.Bibliografias).forEach(([afeccion, descripcion]) => {
                 //console.log(`${afeccion}: ${descripcion}`);
-                resultrBibliografia.value = resultrBibliografia.value+`${descripcion}`+"\n ";
+                resultrBibliografia.value = resultrBibliografia.value+`${descripcion}`+"\n";
             });
             const Boton = document.getElementById('btnGuardarBiblio');
             Boton.removeAttribute('disabled');

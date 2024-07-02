@@ -1,6 +1,7 @@
 
 var doc = "";
 var nameD = "";
+let index = 0;
 document.addEventListener("DOMContentLoaded", function () {
     // Realizar la solicitud HTTP para obtener el JSON
     fetch(URL+"DominiosLista")
@@ -13,17 +14,16 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             // Manipular el DOM para mostrar los datos
             const userListElement = document.getElementById("DominiosList");
-            Object.keys(data).forEach(nece => {
+            Object.keys(data).forEach(dom => {
                 const button  = document.createElement("input");
                 button.type = "button";
                 button.className = "Boton";
-                button.id = `DominiosButton_${nece}`;
-                button.value = data[nece].Title;
-                button.textContent = data[nece].Title;
-                /*button.addEventListener('click',function() {
-                    llamarInformacionDom(data[nece].Id,data[nece].Title);
-                });*/
-                //button.onclick = llamarInformacion();
+                button.id = `DominiosButton_${dom}`;
+                button.value = data[dom].Title;
+                button.textContent = data[dom].Title;
+                button.addEventListener('click',function() {
+                    llamarInformacionDom(data[dom].Id,data[dom].Title);
+                });
                 userListElement.appendChild(button);
             });
         })
@@ -37,7 +37,7 @@ function llamarInformacionDom (documento, name){
     nameD = name;
     console.log(documento+name);
     
-    fetch(URL+'DocPatronesInfo', {
+    fetch(URL+'DocDominiosInfo', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -60,27 +60,54 @@ function llamarInformacionDom (documento, name){
         const resultDefi = document.getElementById('txtDefinicionDom');
         resultDefi.removeAttribute('disabled');
         resultDefi.value = data[0]?.Definicion;
-        const resultrAfecciones = document.getElementById('txtAlteracionesDom');
-        resultrAfecciones.removeAttribute('disabled');
-        resultrAfecciones.value = "";
-        Object.entries(data[0]?.Alteraciones).forEach(([afeccion, descripcion]) => {
-            console.log(`${afeccion}: ${descripcion}`);
-            resultrAfecciones.value = resultrAfecciones.value+`${afeccion}: ${descripcion}`+"\n ";
+        const userListElement = document.getElementById("ClasesList");
+        index = data[0]?.Clases.length;
+        userListElement.innerHTML = '';
+        Object.keys(data[0]?.Clases).forEach(dom => {
+            console.log(dom);
+            const div  = document.createElement("div");
+            div.id = `Div_${dom}`;
+            const tituloC  = document.createElement("h3");
+            tituloC.textContent = "Clase "+(parseInt(dom)+1);
+            tituloC.className = "text-Title";
+            tituloC.id = "Clase"+dom;
+            div.appendChild(tituloC);
+            const campoC  = document.createElement("textarea");
+            campoC.type = "text";
+            campoC.id = `DomTextoC_${dom}`;
+            campoC.className = "rectangle-7";
+            campoC.value = data[0]?.Clases[dom].Clase;
+            div.appendChild(campoC);
+
+            const tituloD  = document.createElement("h3");
+            tituloD.textContent = "Descripcion "+(parseInt(dom)+1);
+            tituloD.className = "text-Title";
+            tituloD.id = "Descripcion"+dom;
+            div.appendChild(tituloD);
+            const campoD  = document.createElement("textarea");
+            campoD.type = "text";
+            campoD.id = `DomTextoD_${dom}`;
+            campoD.className = "rectangle-7";
+            campoD.value = data[0]?.Clases[dom].Descripcion;
+            div.appendChild(campoD);
+
+            const tituloDi  = document.createElement("h3");
+            tituloDi.textContent = "Diagnostico "+(parseInt(dom)+1);
+            tituloDi.className = "text-Title";
+            tituloDi.id = "Diagnostico"+dom;
+            div.appendChild(tituloDi);
+            const campo  = document.createElement("textarea");
+            campo.type = "text";
+            campo.id = `DomTextoDi_${dom}`;
+            campo.className = "rectangle-7";
+            campo.value = "";
+            Object.entries(data[0]?.Clases[dom].Diagnosticos).forEach(([afeccion, descripcion]) => {
+                campo.value = campo.value+`${descripcion}`+"\n";
+            });
+            div.appendChild(campo);
+            userListElement.appendChild(div);
         });
-        const resultrCuidados = document.getElementById('txtValorarDom');
-        resultrCuidados.removeAttribute('disabled');
-        resultrCuidados.value = "";
-        Object.entries(data[0]?.Valoraciones).forEach(([afeccion, descripcion]) => {
-            console.log(`${afeccion}: ${descripcion}`);
-            resultrCuidados.value = resultrCuidados.value+`${afeccion}: ${descripcion}`+"\n ";
-        });
-        const resultados = document.getElementById('txtResultadosDom');
-        resultados.removeAttribute('disabled');
-        resultados.value ="";
-        Object.entries(data[0]?.Resultados).forEach(([afeccion, descripcion]) => {
-            console.log(`${afeccion}: ${descripcion}`);
-            resultados.value = resultados.value+`${afeccion}: ${descripcion}`+"\n ";
-        });
+        
         const Boton = document.getElementById('btnGuardarDom');
         Boton.removeAttribute('disabled');
     }) .catch(error => {
@@ -93,14 +120,23 @@ function llamarInformacionDom (documento, name){
 function GuardarDom(){
     var Definicion = document.getElementById("txtDefinicionDom").value;
     var Titulo = document.getElementById("txtTituloDom").value;
-    var Objetivo = document.getElementById("txtResultadosDom").value;
-    var resultados = transformarJson(Objetivo);
-    var alteraciones = document.getElementById("txtAlteracionesDom").value;
-    var resultadosAltera = transformarJson(alteraciones);
-    var valorar = document.getElementById("txtValorarDom").value;
-    var resultadosValor = transformarJson(valorar);
-    console.log(resultados.Resultados);
-    fetch(URL+'EditarDocumentPatron/'+doc+"/"+nameD, {
+    var Clases=[];
+    for (let i = 0; i < index; i++) {
+        var valor = {
+            Clase: document.getElementById("DomTextoC_"+i).value,
+            Descripcion: document.getElementById("DomTextoD_"+i).value,
+            Diagnosticos: transformarJson(document.getElementById("DomTextoDi_"+i).value)
+        }
+        
+        Clases.push(valor);
+    }
+    const dominio = {
+        Titulo,
+        Definicion,
+        Clases
+    }
+    console.log(dominio);
+    fetch(URL+'EditarDocumentDominio/'+doc+"/"+nameD, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -108,9 +144,7 @@ function GuardarDom(){
         body: JSON.stringify({
             DefinicionUpdate: Definicion,
             TituloUpdate: Titulo,
-            ResultadoUpdate: resultados.Resultados,
-            AlteracionesUpdate: resultadosAltera.Resultados,
-            ValorarUpdate: resultadosValor.Resultados
+            ClasesUpdate: Clases,
         })
     }).then(data=> {
         console.log("Completado");
@@ -127,12 +161,12 @@ function transformarJson(valor){
 
     // Crear el objeto JSON en el formato deseado
     const valoracionesJSON = {
-    "Resultados": {}
+    "Resultados": []
     };
 
     elementos.forEach((elemento) => {
-    const [clave, valor] = elemento.split(':').map(item => item.trim());
-    valoracionesJSON.Resultados[clave] = !isNaN(valor) ? parseFloat(valor) : valor;
+        const [clave, valor] = elemento.split('.-').map(item => item.trim());
+        valoracionesJSON.Resultados[clave] = !isNaN(valor) ? parseFloat(valor) : valor;
     });
 
     //console.log(JSON.stringify(valoracionesJSON, null, 2));
@@ -147,15 +181,8 @@ function limpiarDom(){
     var Titulo = document.getElementById("txtTituloDom");
     Titulo.setAttribute('disabled', 'disabled');
     Titulo.value="";
-    var Objetivo = document.getElementById("txtResultadosDom");
-    Objetivo.setAttribute('disabled', 'disabled');
-    Objetivo.value="";
-    var alteraciones = document.getElementById("txtAlteracionesDom");
-    alteraciones.setAttribute('disabled', 'disabled');
-    alteraciones.value="";
-    var valorar = document.getElementById("txtValorarDom");
-    valorar.setAttribute('disabled', 'disabled');
-    valorar.value="";
+    const userListElement = document.getElementById("ClasesList");
+    userListElement.innerHTML = '';
     const Boton = document.getElementById('btnGuardarDom');
     Boton.setAttribute('disabled', 'disabled');
 }
